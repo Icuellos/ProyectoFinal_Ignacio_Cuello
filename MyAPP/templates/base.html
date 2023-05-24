@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Tu título de página</title>
-        <link rel="stylesheet" href="style.css">
-      </head>    
+<head>
+    <meta charset="UTF-8">
+    <title>Tu título de página</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-links li {
+            margin-right: 10px;
+        }
+    </style>
+</head>    
 <body>
-    <header>
-        <h2>Bienvenid@s a la <span class="text-primary">Pagina de donaciones de Juguetes!!</span></h2>
-        <nav>
-            <ul class="nav-links">
-                <h2><a href="/">Home</a></h2>
-                <h2><a href="/Proyectos">Ligas</a></h2>
-                <h2><a href="/Equipo">Equipos Infantiles</a></h2>
-                <li>
-                <h2><a href="#">Ingresar datos</a></h2>
-                    <ul>
-                        <li><a href="/Crear_Liga">Ingresa una Nueva Liga</a></li>
-                        <li><a href="/Crear_form">Ingrese Nuevo Jugador</a></li>
-                        <li><a href="/Crear_Equipo">Ingrese Nuevo Equipo</a></li>
-                    </ul>
-                </li>
-                <h2><a href="/buscar/">Buscar</a></h2>
-                <h2><a href="/About">About</a></h2>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <h2>Bienvenid@s a la <span class="text-primary">Pagina de donaciones de Juguetes!!</span></h2>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/Proyectos">Ligas</a></li>
+            <li><a href="/Equipo">Equipos Infantiles</a></li>
+            <li>
+                <a href="#">Ingresar datos</a>
+                <ul>
+                    <li><a href="/Crear_Liga">Ingresa una Nueva Liga</a></li>
+                    <li><a href="/Crear_form">Ingrese Nuevo Jugador</a></li>
+                    <li><a href="/Crear_Equipo">Ingrese Nuevo Equipo</a></li>
+                </ul>
+            </li>
+            <li><a href="/buscar/">Buscar</a></li>
+            <li><a href="/About">About</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
 
-    <footer>
-    </footer>
+<footer>
+</footer>
 </body>
 </html>
