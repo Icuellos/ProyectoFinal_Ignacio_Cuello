@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CrearNuevoFormulario, CrearNuevoProyecto, CrearNuevaLiga, CrearNuevoEquipo, BuscarEquipoForm, BuscarFormulario
 # Create your views here.
 def index(request):
-    title = "!!"
+    title = "Misión" 
     return render(request, "Index.html", 
                   {'title': title})
 
