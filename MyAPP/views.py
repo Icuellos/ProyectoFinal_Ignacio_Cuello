@@ -2,7 +2,7 @@
 from django.http import HttpResponse, JsonResponse
 from .models import Proyecto, Equipos, Liga
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CrearNuevoFormulario, CrearNuevoProyecto, CrearNuevaLiga, CrearNuevoEquipo, BuscarEquipoForm, BuscarFormulario
+from .forms import CrearNuevoFormulario, CrearNuevoProyecto, CrearNuevaLiga, CrearNuevoEquipo, BuscarEquipoForm, BuscarFormulario, ArticuloForm
 # Create your views here.
 def index(request):
     title = "Misión" 
@@ -27,8 +27,7 @@ def Proyectos(request):
 def Crear_Proyecto(request):
     if request.method == 'GET':
      return render(request, 'Crear_Proyecto.html', 
-                  {'form': CrearNuevoProyecto()
-    })
+                  {'form': CrearNuevoProyecto()})
     else:
         print (request.POST)
         Proyectos = Proyecto.objects.create(name=request.POST["name"])
@@ -152,4 +151,17 @@ def crear_nuevo(request):
     else:
         formulario = CrearNuevoFormulario()
     return render(request, 'crear_nuevo.html', {'formulario': formulario})
+
+#COMENZANDO CON LOS ARTICULOS
+def crear_articulo(request):
+    if request.method == 'POST':
+        form = ArticuloForm(request.POST, request.FILES)
+        if form.is_valid():
+            articulo = form.save(commit=False)
+            articulo.autor = request.user
+            articulo.save()
+            return redirect('blog:lista_articulos')
+    else:
+        form = ArticuloForm()
+    return render(request, 'crear_articulo.html', {'form': form})
 
