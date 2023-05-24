@@ -1,14 +1,12 @@
-from django.urls import path, include
-from .import views
-from django.contrib.auth import login, logout
-from .forms import RegisterForm
-from perfiles.views import LoginUsuarioView
+from django.urls import path
+from . import views
 
-app_name = 'perfiles'
+
+app_name = 'Perfiles'
 
 urlpatterns = [
     # ... otras rutas de tu proyecto ...
-    path("register/", views.register, name="register"),
-    path("logout/", views.logout_view, name="logout"),
-    path('login/', LoginUsuarioView.as_view(), name='login'),
+    path('registro/', views.registro, name='registro'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
 ]

@@ -19,13 +19,6 @@
 <header>
     <h2>Bienvenid@s a la <span class="text-primary">Pagina de donaciones de Juguetes!!</span></h2>
     <nav>
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
-            <!-- Otros elementos de la barra de navegación -->
-        </ul>
-    </nav>
-    <nav>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/Proyectos">Ligas</a></li>
@@ -44,8 +37,8 @@
             {% if user.is_authenticated %}
                 <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
             {% else %}
-                <li><a href="{% url 'login' %}">In sesión</a></li>
-                <li><a href="{% url 'register' %}">Registrarse</a></li>
+                <li><a href="{% url 'Perfiles:login' %}">Iniciar sesión</a></li>
+                <li><a href="{% url 'Perfiles:registro' %}">Registrarse</a></li>
             {% endif %}
         </ul>
     </nav>
@@ -60,3 +53,4 @@
 </footer>
 </body>
 </html>
+
