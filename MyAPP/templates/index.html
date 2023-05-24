@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Navegación -->
+<nav>
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#donacion">Donación</a></li>
+    <li><a href="#juguetes">Juguetes</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- Contenido de la página -->
+<section id="inicio">
+  <h1>{{title}}</h1>
+  <img src="{% static '' %}" alt="" width="120">
+</section>
+
+<section id="donacion">
+  <h2>Donación de Juguetes</h2>
+  <p>
+    si en casa tienes juguetes de tus hijos que han dejado de darle importancia y lo tienes arrumado en cajas, bolsas o en la esquina de tu cuarto ocupando espacio y no sabes que hacer, pues te invitamos a que dones!!
+  </p>
+</section>
+
+<section id="juguetes">
+  <h2>Tipos de Juguetes</h2>
+  <p>
+    ¿Qué juguetes puedes donar?
+    
+    <p>
+    ¿Qué juguetes puedes donar?
+    
+    <!-- Contenido de la sección Juguetes -->
+  </p> <!-- Contenido de la sección Juguetes -->
+  </p>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>
+    Ponte en contacto con nosotros...
+    <!-- Contenido de la sección Contacto -->
+  </p>
+</section>
+
+{% endblock %}
+
+
+
+
+
+
+
