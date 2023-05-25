@@ -22,7 +22,7 @@
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/Proyectos">Ligas</a></li>
-            <><a href="/Equipo">Equipos Infantiles</a></li>
+            <li><a href="/Equipo">Equipos Infantiles</a></li>
             <li>
                 <a href="#">Articulos</a>
                 <ul>
@@ -40,6 +40,7 @@
                 <li><a href="{% url 'Perfiles:login' %}">Iniciar sesión</a></li>
                 <li><a href="{% url 'Perfiles:registro' %}">Registrarse</a></li>
             {% endif %}
+            <li><a href="{% url 'Perfiles:perfil_create' %}">Crear perfil</a></li>
         </ul>
     </nav>
 </header>
@@ -53,4 +54,5 @@
 </footer>
 </body>
 </html>
+
 
