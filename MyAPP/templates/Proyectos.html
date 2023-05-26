@@ -10,11 +10,16 @@
             </a>
             <form method="post" action="{% url 'eliminar_liga' liga.id %}">
                 {% csrf_token %}
-                <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta liga?')">Delete</button>
+                <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta liga?')">Eliminar</button>
             </form>
         </div>
     {% endfor %}
+
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
 {% endblock %}
+
 
 
 

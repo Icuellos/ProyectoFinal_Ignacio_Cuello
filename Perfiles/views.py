@@ -8,16 +8,6 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 
 
-def registro(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('perfiles:login')
-    else:
-        form = UserCreationForm()
-    return render(request, 'registro.html', {'form': form})
-
 
 def login(request):
     if request.method == 'POST':
@@ -79,5 +69,25 @@ def perfil_delete(request, perfil_id):
         return redirect('perfil_list')
     return render(request, 'perfil_delete.html', {'perfil': perfil})
 
+def iniciar_sesion(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'iniciar_sesion.html', {'form': form})
 
+def registro(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registro.html', {'form': form})
 

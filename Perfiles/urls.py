@@ -14,6 +14,8 @@ urlpatterns = [
     path('create/', views.perfil_create, name='perfil_create'),
     path('perfiles/update/<int:perfil_id>/', views.perfil_update, name='perfil_update'),
     path('perfiles/delete/<int:perfil_id>/', views.perfil_delete, name='perfil_delete'),
+    path('iniciar_sesion/', views.iniciar_sesion, name='iniciar_sesion'),
+    path('registro/', views.registro, name='registro'),
     # ... otras rutas de tu proyecto ...
 ]
 
