@@ -1,24 +1,19 @@
-# Cuello_Tercer_PreEntrega
-Proyecto ligas infantiles de Canelones
+# Proyecto Final Comisión #40440 - Ignacio Cuello
+Donaciones de juguetes - Nuevos y usados!!
 
 
 ## Tabla de contenidos
 
 - [Introducción](#introducción)
-- [Características](#características)
 - [Requisitos](#requisitos)
 - [Instalación](#instalación)
 - [Uso](#Uso)
-
-
+- [SuperUsuario](#SuperUsuario)
 
 
 ## Introducción
 
-Este proyecto es una pre-entrega que forma parte de un proyecto más amplio. 
-
-## Características
-Caracteristicas generales del proyecto: 
+Sitio para publicar donaciones de juguetes, Nuevos y usados. Los usuarios deberan registrarse para poder donar y retirar.
 
 ## Requisitos
 
@@ -26,6 +21,7 @@ Antes de comenzar con este proyecto, asegúrate de cumplir con los siguientes re
 
 asgiref==3.6.0
 Django==4.2.1
+Pillow==9.5.0
 sqlparse==0.4.4
 tzdata==2023.3
 
@@ -45,8 +41,10 @@ pip install -r requirements.txt
 
 información sobre cómo utilizar y ejecutar el proyecto:
 
-Iniciar el servidor de desarrollo
+Iniciar el servidor de desarrollo python manage.py runserver
 Acceder al proyecto en el navegador web
+
+## Superusuario
 
 
 
