@@ -165,3 +165,19 @@ def crear_articulo(request):
         form = ArticuloForm()
     return render(request, 'crear_articulo.html', {'form': form})
 
+
+
+def contacto(request):
+    mensaje_enviado = False
+
+    if request.method == 'POST':
+        # Procesar el formulario y guardar los datos
+        mensaje_enviado = True
+
+    context = {
+        'mensaje_enviado': mensaje_enviado
+    }
+
+    return render(request, 'contacto.html', context)
+                  
+

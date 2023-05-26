@@ -2,44 +2,24 @@
 {% load static %}
 
 {% block content %}
-
-<br>
-<br>
-
-
-    <div class="container">
-       <h2 class="text-center text-dark">
-           Acerca de Mi!!
-       </h2>
-       <br>
-       <div class="row g-4">
-           <div class="col-md-6 col-lg-3">
-               <div class="card bg-success">
-                    <div class="card-body text-center">
-                        <img src="{% static 'imagenes/jp2.jpeg' %}" class="rounded-circle mb-3" width="150px">
-                    <h3 class="card-title mb-3">Sitio Creado por Ignacio Cuello</h3>
-                    <p class="card-text">Estiduante python.</p>
-                    <p class="card-text">Sigueme en:</p>
-                    <a href="https://github.com/Icuellos/ProyectoFinal_Ignacio_Cuello"><i class="bi bi-github text-dark mx-1"></i></a>
-                    <a href="www.linkedin.com/in/ignacio-cuello-958720127
-                    "><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                    </div>
-               </div>
-           </div>
-           <div class="col">
-            <div class="">
-                 <div class="text-center">
-                    <p>MI nombre es Ignacio Cuello estudiante de python en la comisión #40440 en CoderHouse. Hace más de 10 años me dedico al amálisis espacial e información geográfica. Actualmente trabajando como asistente técnico en consultora ambiental "ADAPTA Ingenieria Ambiental". No dejes de visitarme en las redes sociales!!  :)</p>
-                 </div>
-            </div>
-        </div>
-       </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-
+    <h2>Contacto!!</h2>
+    {% if mensaje_enviado %}
+        <p>Gracias por comunicarte. Nos pondremos en contacto contigo pronto.</p>
+        <a href="{% url 'index' %}">Regresar a Home</a>
+    {% else %}
+        <form action="{% url 'contacto' %}" method="post">
+            {% csrf_token %}
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="mensaje">Dejanos un mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+    {% endif %}
 {% endblock %}
+
