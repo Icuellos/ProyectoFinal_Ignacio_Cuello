@@ -3,6 +3,8 @@ from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Perfil
 from .forms import PerfilForm
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 
 def registro(request):
@@ -41,16 +43,20 @@ def perfil_detail(request, perfil_id):
     perfil = get_object_or_404(Perfil, pk=perfil_id)
     return render(request, 'perfil_detail.html', {'perfil': perfil})
 
-
 def perfil_create(request):
     if request.method == 'POST':
         form = PerfilForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('perfil_list')
+            return redirect('index')  # Redirige a la página de inicio
     else:
         form = PerfilForm()
-    return render(request, 'perfil_create.html', {'form': form})
+    
+    context = {'form': form}
+    return render(request, 'perfil_create.html', context)
+
+
+
 
 
 def perfil_update(request, perfil_id):
@@ -71,3 +77,8 @@ def perfil_delete(request, perfil_id):
         perfil.delete()
         return redirect('perfil_list')
     return render(request, 'perfil_delete.html', {'perfil': perfil})
+
+
+def index(request):
+    
+    return render(request, 'index.html')

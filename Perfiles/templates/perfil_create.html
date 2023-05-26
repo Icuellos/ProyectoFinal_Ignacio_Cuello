@@ -1,10 +1,43 @@
-{% extends 'base.html' %}
-
-{% block content %}
-  <h2>Create Perfil</h2>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create</button>
-  </form>
-{% endblock %}
+<form method="post">
+  {% csrf_token %}
+  
+  <!-- Otros campos del formulario -->
+  
+  <div class="form-group">
+    <label for="{{ form.username.id_for_label }}">Username</label>
+    {{ form.username }}
+    {% if form.username.errors %}
+      <div class="text-danger">
+        {% for error in form.username.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  
+  <div class="form-group">
+    <label for="{{ form.password.id_for_label }}">Password</label>
+    {{ form.password }}
+    {% if form.password.errors %}
+      <div class="text-danger">
+        {% for error in form.password.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  
+  <div class="form-group">
+    <label for="{{ form.password_confirm.id_for_label }}">Confirm Password</label>
+    {{ form.password_confirm }}
+    {% if form.password_confirm.errors %}
+      <div class="text-danger">
+        {% for error in form.password_confirm.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
