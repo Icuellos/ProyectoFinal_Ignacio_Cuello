@@ -5,6 +5,7 @@ from .models import Perfil
 from .forms import PerfilForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.shortcuts import render, redirect
 
 
 def registro(request):
@@ -79,6 +80,4 @@ def perfil_delete(request, perfil_id):
     return render(request, 'perfil_delete.html', {'perfil': perfil})
 
 
-def index(request):
-    
-    return render(request, 'index.html')
+
