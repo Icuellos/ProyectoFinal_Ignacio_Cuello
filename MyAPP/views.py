@@ -157,17 +157,23 @@ def crear_nuevo(request):
 #COMENZANDO CON LOS ARTICULOS
 def crear_articulo(request):
     if request.method == 'POST':
-        form = ArticuloForm(request.POST)
-        if form.is_valid():
-            # Crear una instancia del artículo y asignar el autor
-            articulo = form.save(commit=False)
+        formulario = ArticuloForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            # Asignar el autor actual al campo 'autor'
+            articulo = formulario.save(commit=False)
             articulo.autor = request.user
+            
+            # Obtener el proyecto al que se desea asociar el artículo
+            proyecto = Proyecto.objects.get(id=1)  # Reemplaza 1 con el ID del proyecto deseado
+            
+            articulo.proyecto = proyecto
             articulo.save()
-            return redirect('ligas')
+            return redirect('Proyectos')
     else:
-        form = ArticuloForm()
+        formulario = ArticuloForm()
     
-    return render(request, 'crear_articulo.html', {'form': form})
+    contexto = {'formulario': formulario}
+    return render(request, 'crear_articulo.html', contexto)
 
 
 

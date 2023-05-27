@@ -52,6 +52,7 @@ class Articulo(models.Model):
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True)
     imagen = models.ImageField(upload_to='articulos/', blank=True, null=True)
+    proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.titulo     

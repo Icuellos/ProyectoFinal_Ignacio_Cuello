@@ -3,7 +3,7 @@ from .models import Liga, Equipos, Proyecto, Articulo
 
 class CrearNuevoFormulario(forms.Form):
     title = forms.CharField(label="Nombre", max_length=200)
-    edad = forms.IntegerField(label="Ingrese su edad")
+    title01 = forms.IntegerField(label="Ingrese su edad")
     title2 = forms.CharField(label="Equipo al que pertenece", max_length=200)
     
     
