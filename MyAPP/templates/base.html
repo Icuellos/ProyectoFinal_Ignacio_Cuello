@@ -35,12 +35,11 @@
             <li><a href="/contacto/">Contacto</a></li>
             <li><a href="/About">About</a></li>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                <li><a href="{% url 'Perfiles:logout' %}">Cerrar sesión</a></li>
             {% else %}
                 <li><a href="{% url 'Perfiles:login' %}">Iniciar sesión</a></li>
                 <li><a href="{% url 'Perfiles:registro' %}">Registrarse</a></li>
             {% endif %}
-            <li><a href="{% url 'Perfiles:perfil_create' %}">Crear perfil</a></li>
         </ul>
     </nav>
 </header>

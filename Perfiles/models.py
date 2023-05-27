@@ -3,9 +3,9 @@ from django.db import models
 
 class Perfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    fecha_nacimiento = models.DateField()
-    telefono = models.CharField(max_length=20)
-    nombre = models.CharField(max_length=100)
+    # Agrega los campos adicionales que deseas incluir en el perfil
+    nombre = models.CharField(max_length=50)
+    edad = models.IntegerField()
 
     def __str__(self):
-        return self.nombre
+        return self.user.username
