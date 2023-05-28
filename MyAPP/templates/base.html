@@ -29,7 +29,7 @@
             justify-content: space-between;
         }
         .nav-links li {
-            margin-right: 10px;
+            margin-center: 0px;
         }
     </style>
 </head>    
@@ -52,6 +52,12 @@
             <li><a href="/buscar/">Buscar</a></li>
             <li><a href="/contacto/">Contacto</a></li>
             <li><a href="/About">About</a></li>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div style="display: inline-flex;">
+                        <span>{{ user.username }}</span>
+                    </div>
+                </button>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'Perfiles:logout' %}">Cerrar sesión</a></li>
             {% else %}
@@ -66,6 +72,11 @@
     {% block content %}
     {% endblock %}
 </main>
+
+<section style="padding:80px 50px;">
+    {% block contenido %}
+    {% endblock contenido %}
+</section>
 
 <footer>
 </footer>
