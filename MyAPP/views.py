@@ -190,4 +190,7 @@ def contacto(request):
 
     return render(request, 'contacto.html', context)
                   
-
+def lista_articulos(request):
+    articulos = Articulo.objects.all()
+    contexto = {'articulos': articulos}
+    return render(request, 'lista_articulos.html', contexto)

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Ligas</h1>
+    <h1>Nuevos Articulos</h1>
 
-    {% for liga in Ligas %}
+    {% for liga in articulos %}
         <div>
             <a href="{% url 'detalle_liga' liga.id %}">
-                <h1>{{ liga.name }}</h1>
+                <h1>{{ liga.titulo }}</h1>
             </a>
             <form method="post" action="{% url 'eliminar_liga' liga.id %}">
                 {% csrf_token %}

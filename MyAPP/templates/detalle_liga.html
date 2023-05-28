@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Detalles de la Liga: {{ liga.name }}</h1>
+    <h1>Detalles del Artículo: {{ articulo.titulo }}</h1>
 
-    <h2>Equipos:</h2>
-    {% if equipos %}
-        <ul>
-            {% for equipo in equipos %}
-                <li>{{ equipo.name }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No hay equipos registrados para esta liga.</p>
-    {% endif %}
+    <p>Juguete: {{ articulo.juguete }}</p>
+    <p>Subtítulo: {{ articulo.subtitulo }}</p>
+    <p>Cuerpo: {{ articulo.cuerpo }}</p>
+    <p>Autor: {{ articulo.autor }}</p>
+    <p>Fecha: {{ articulo.fecha }}</p>
+    <p>Imagen: <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}" /></p>
+    <p>Proyecto: {{ articulo.proyecto }}</p>
+
 {% endblock %}
