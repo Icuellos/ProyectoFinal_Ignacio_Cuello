@@ -45,6 +45,9 @@ Iniciar el servidor de desarrollo python manage.py runserver
 Acceder al proyecto en el navegador web
 
 ## Superusuario
+icuello
+icuellos@gmail.com
+Sauce456123
 
 
 
