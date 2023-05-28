@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label='Nombre de usuario')
+    email = forms.CharField(label='Correro electronico')
     password = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
 
 
