@@ -36,22 +36,16 @@
 <body>
 <header>
     <h2>Bienvenid@s a la <span class="text-primary">Pagina de donaciones!!</span></h2>
-    <nav>
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/Proyectos">Articulos</a></li>
-            <li><a href="/Equipo">Equipos Infantiles</a></li>
-            <li>
-                <a href="#">Articulos</a>
-                <ul>
-                    <li><a href="/crear_articulo">Ingresa un nuevo articulo</a></li>
-                    <li><a href="/Crear_form">Ingrese Nuevo Jugador</a></li>
-                    <li><a href="/Crear_Equipo">Ingrese Nuevo Equipo</a></li>
-                </ul>
-            </li>
-            <li><a href="/buscar/">Buscar</a></li>
-            <li><a href="/contacto/">Contacto</a></li>
-            <li><a href="/About">About</a></li>
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+            <a class="navbar-brand" href="{% url 'Proyectos' %}">Articulos</a>
+            <a class="navbar-brand" href="{% url 'crear_articulo' %}">Ingrese nuevo articulo</a>
+            <a class="navbar-brand" href="{% url 'Crear_Equipo' %}">Ingrese Nuevo Equipo</a>
+            <a class="navbar-brand" href="{% url 'buscar' %}">Buscar Articulo</a>
+            <a class="navbar-brand" href="{% url 'contacto' %}">Contacto</a>
+            <a class="navbar-brand" href="{% url 'about' %}">About</a>
+                
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
             <script>
@@ -77,6 +71,7 @@
                 <li><a href="{% url 'Perfiles:registro' %}">Registrarse</a></li>
             {% endif %}
         </ul>
+        </div>
     </nav>
 </header>
 

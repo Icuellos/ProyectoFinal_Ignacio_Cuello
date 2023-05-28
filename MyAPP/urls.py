@@ -4,7 +4,7 @@ urlpatterns = [
     path('', views.index),
     path('index/', views.index, name='index'),
     path('articulos/', views.lista_articulos, name='lista_articulos'),
-    path('About/', views.about),
+    path('about/', views.about, name='about'),
     path('contacto/', views.contacto, name='contacto'),
     path('Proyectos/', views.Proyectos, name='Proyectos'),
     path('Crear_form/', views.Crear_form, name='form'),
