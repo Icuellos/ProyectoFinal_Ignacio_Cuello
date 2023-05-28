@@ -14,23 +14,7 @@ class Equipos(models.Model):
     def __str__(self):
          return self.name
     
-class Puntuacion(models.Model):    
-     Puntos = models.CharField(max_length=200)
-     proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE)
-        
-     def __str__(self):
-         return self.Puntos
-     
-class Goleadores(models.Model):    
-     Nombre = models.CharField(max_length=200)
-     proyecto =models.ForeignKey(Proyecto, on_delete=models.CASCADE)
-    
-     def __str__(self):
-         return self.Nombre  
-     
- 
-     
-# Eliminar desde aqui en caso de error
+
 class Liga(models.Model):    
      name = models.CharField(max_length=200)
      #proyecto =models.ForeignKey(Proyecto, on_delete=models.CASCADE)
@@ -38,7 +22,7 @@ class Liga(models.Model):
      def __str__(self):
          return self.name     
      
-#COMENZANDO CON LOS ARTICULOS     
+
 class Articulo(models.Model):
     titulo = models.CharField(max_length=200)
     juguete = models.CharField(max_length=200)
