@@ -8,9 +8,9 @@
         <button type="submit">Buscar</button>
     </form>
 
-    {% if equipos %}
+    {% if articulos %}
         <ul>
-            {% for equipo in equipos %}
+            {% for articulo in articulos %}
                 <li>
                     <a href="{% url 'detalle_equipo' equipo.id %}">{{ equipo.name }}</a>
                 </li>

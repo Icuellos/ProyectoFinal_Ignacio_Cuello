@@ -30,12 +30,12 @@ class BuscarEquipoForm(forms.Form):
     
 class BuscarFormulario(forms.Form):
     OPCIONES_BUSQUEDA = [
-        ('equipo', 'Equipo'),
-        ('liga', 'Liga'),
+        ('articulo', 'Articulo'),
+        
     ]
 
     termino = forms.CharField(label='Ingresar dato!!')
-    tipo_busqueda = forms.ChoiceField(label='Selecciona Equipo o Liga!!', choices=OPCIONES_BUSQUEDA)
+    tipo_busqueda = forms.ChoiceField(label='Encuentre su Articulo!!!!', choices=OPCIONES_BUSQUEDA)
     
     #cOMENZANDO CON LOS ARTICULOS
     

@@ -12,21 +12,13 @@
         <button type="submit">Buscar</button>
     </form>
 
-    {% if equipos %}
+    {% if articulo %}
         <h2>Resultado de la búsqueda!!</h2>
         <ul>
-            {% for equipo in equipos %}
-                <li>{{ equipo.name }}</li>
+            {% for articulo in articulos %}
+                <li>{{ articulo.titulo }}</li>
             {% endfor %}
         </ul>
-    {% endif %}
-
-    {% if ligas %}
-        <h2>Resultados de la búsqueda</h2>
-        <ul>
-            {% for liga in ligas %}
-                <li>{{ liga.name }}</li>
-            {% endfor %}
-        </ul>
+    
     {% endif %}
 {% endblock %}
