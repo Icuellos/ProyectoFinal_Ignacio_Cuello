@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CrearNuevoFormulario, CrearNuevoProyecto, CrearNuevaLiga, CrearNuevoEquipo, BuscarEquipoForm, BuscarFormulario, ArticuloForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.urls import path
 # Create your views here.
 def index(request):
     title = "Misión" 
@@ -194,3 +195,7 @@ def lista_articulos(request):
     articulos = Articulo.objects.all()
     contexto = {'articulos': articulos}
     return render(request, 'lista_articulos.html', contexto)
+
+def detalle_articulo(request, articulo_id):
+    articulo = get_object_or_404(Articulo, id=articulo_id)
+    return render(request, 'detalle_articulo.html', {'articulo': articulo})

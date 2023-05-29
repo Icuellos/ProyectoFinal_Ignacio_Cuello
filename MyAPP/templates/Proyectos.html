@@ -1,23 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <h1>Nuevos Articulos</h1>
-
-    {% for liga in articulos %}
-        <div>
-            <a href="{% url 'detalle_liga' liga.id %}">
-                <h1>{{ liga.titulo }}</h1>
-            </a>
-            <form method="post" action="{% url 'eliminar_liga' liga.id %}">
-                {% csrf_token %}
-                <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta liga?')">Eliminar</button>
-            </form>
-        </div>
-    {% endfor %}
-
-    {% if mensaje %}
-        <p>{{ mensaje }}</p>
-    {% endif %}
+    <h1>Proyecto</h1>
+    <ul>
+        {% for articulo in articulos %}
+            <li>
+                <h3>{{ articulo.titulo }}</h3>
+                <p>Autor: {{ articulo.autor }}</p>
+                <p>Fecha de publicación: {{ articulo.fecha_publicacion }}</p>
+                <p>Contenido: {{ articulo.contenido }}</p>
+                <a href="{% url 'detalle_articulo' articulo.id %}">Ver detalles</a>
+            </li>
+        {% empty %}
+            <li>No hay artículos disponibles.</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
 
 
