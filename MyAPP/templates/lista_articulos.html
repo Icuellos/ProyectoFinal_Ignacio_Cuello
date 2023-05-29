@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h2>Artículos</h2>
+  <h2>Articulos</h2>
   <ul>
     {% for articulo in articulos %}
       <li>
-        <a href="{% url 'detalle_articulo' articulo.id %}">
-          <h3>{{ articulo.titulo }}</h3>
-        </a>
+        <h3><a href="{% url 'detalle_articulo' articulo.id %}">{{ articulo.titulo }}</a></h3>
         <p>Autor: {{ articulo.autor }}</p>
         <p>Fecha de publicación: {{ articulo.fecha_publicacion }}</p>
         <p>Contenido: {{ articulo.contenido }}</p>
+        <form method="post" action="{% url 'eliminar_articulo' articulo.id %}">
+          {% csrf_token %}
+          <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este artículo?')">Eliminar</button>
+        </form>
       </li>
     {% empty %}
       <li>No hay artículos disponibles.</li>

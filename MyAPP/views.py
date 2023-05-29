@@ -17,8 +17,7 @@ def about(request):
     return render(request, "About.html", {'username': username})
 
 def Crear_form(request):
-   # Proyectos = list(Proyecto.objects.values())
-   #Equipos = equipos.objects.all()
+
    return render(request, 'Crear_form.html',
                  {'form': CrearNuevoFormulario})
    
@@ -52,9 +51,7 @@ def Crear_Liga(request):
 
     return render(request, 'Crear_Liga.html', {'form': form})
 
-#def Equipo(request):
-    #equipos = Equipos.objects.all()
-    #return render(request, 'Equipo.html', {'equipos': equipos}) 
+
 def Crear_Equipo(request):
     ligas = Liga.objects.all()
 
@@ -70,20 +67,7 @@ def Crear_Equipo(request):
 
     return render(request, 'crear_equipo.html', {'form': form, 'ligas': ligas})
 
-#def Crear_Equipo(request):
-    if request.method == 'POST':
-         form = CrearNuevoEquipo(request.POST)
-         if form.is_valid():
-            name = form.cleaned_data['name']
-            liga = form.cleaned_data['liga']
-            equipo = Equipos(name=name, liga=liga)
-            #equipo = Equipos(name=name) comentamos esto para ver si podemos guardar equpo en ligas
-            equipo.save()
-            return redirect('Equipo')   
-    else: 
-        form = CrearNuevoEquipo()
 
-    return render(request, 'Crear_Equipo.html', {'form': form})
 
 def Equipo(request):
     equipos = Equipos.objects.all()
@@ -103,9 +87,7 @@ def detalle_equipo(request, equipo_id):
     equipo = Equipos.objects.get(id=equipo_id)
     return render(request, 'detalle_equipo.html', {'equipo': equipo})  
   
-#def detalle_equipo(request, equipo_id):
-#    equipo = get_object_or_404(Equipos, id=equipo_id)
-#    return render(request, 'detalle_equipo.html', {'equipo': equipo})    
+ 
 
 #PARA ELIMINAR EQUIPOS
 def eliminar_liga(request, liga_id):
@@ -199,3 +181,27 @@ def lista_articulos(request):
 def detalle_articulo(request, articulo_id):
     articulo = get_object_or_404(Articulo, id=articulo_id)
     return render(request, 'detalle_articulo.html', {'articulo': articulo})
+
+
+#EMPEZANDO CON CRUD
+def listar_articulos(request):
+    articulos = Articulo.objects.all()
+    return render(request, 'lista_articulos.html', {'articulos': articulos})
+
+def actualizar_articulo(request, articulo_id):
+    articulo = get_object_or_404(Articulo, id=articulo_id)
+    
+    if request.method == 'POST':
+        formulario = ArticuloForm(request.POST, instance=articulo)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('listar_articulos')
+    else:
+        formulario = ArticuloForm(instance=articulo)
+    
+    return render(request, 'actualizar_articulo.html', {'formulario': formulario, 'articulo': articulo})
+
+def eliminar_articulo(request, articulo_id):
+    articulo = get_object_or_404(Articulo, id=articulo_id)
+    articulo.delete()
+    return redirect('listar_articulos')

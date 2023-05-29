@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-  <h2>Detalle del Artículo</h2>
+  <h2>Detalle de Artículo</h2>
   <h3>{{ articulo.titulo }}</h3>
+  <p>Juguete: {{ articulo.juguete }}</p>
+  <p>Subtítulo: {{ articulo.subtitulo }}</p>
   <p>Autor: {{ articulo.autor }}</p>
-  <p>Fecha de publicación: {{ articulo.fecha_publicacion }}</p>
-  <p>Contenido: {{ articulo.contenido }}</p>
+  <p>Fecha de publicación: {{ articulo.fecha }}</p>
+  <p>Contenido: {{ articulo.cuerpo }}</p>
+  {% if articulo.imagen %}
+    <img src="{{ articulo.imagen.url }}" alt="Imagen del artículo">
+  {% endif %}
+  <a href="{% url 'actualizar_articulo' articulo.id %}">Editar</a>
 {% endblock %}

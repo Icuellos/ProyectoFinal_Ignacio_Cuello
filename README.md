@@ -1,5 +1,5 @@
 # Proyecto Final Comisión #40440 - Ignacio Cuello
-Donaciones de juguetes - Nuevos y usados!!
+Donaciones de juguetes!!!
 
 
 ## Tabla de contenidos
@@ -13,7 +13,7 @@ Donaciones de juguetes - Nuevos y usados!!
 
 ## Introducción
 
-Sitio para publicar donaciones de juguetes, Nuevos y usados. Los usuarios deberan registrarse para poder donar y retirar.
+Sitio para publicar donaciones de juguetes, Nuevos y usados. Los usuarios deberan registrarse para poder hacer una donación.
 
 ## Requisitos
 

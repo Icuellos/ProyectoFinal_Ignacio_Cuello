@@ -1,8 +1,8 @@
-from django.urls import include, path
-from .import views
-from django.contrib import admin
+from django.urls import path
+from . import views
+
 urlpatterns = [
-    path('', views.index),
+    path('', views.index, name='index'),
     path('index/', views.index, name='index'),
     path('articulos/', views.lista_articulos, name='lista_articulos'),
     path('about/', views.about, name='about'),
@@ -16,12 +16,16 @@ urlpatterns = [
     path('Crear_Equipo/', views.Crear_Equipo, name='Crear_Equipo'),
     path('equipo/<int:equipo_id>/', views.detalle_equipo, name='detalle_equipo'),
     path('eliminar_liga/<int:liga_id>/', views.eliminar_liga, name='eliminar_liga'),
-    path('eliminar_liga/<int:liga_id>/', views.eliminar_liga, name='eliminar_liga'),
     path('eliminar_equipo/<int:equipo_id>/', views.eliminar_equipo, name='eliminar_equipo'),
     path('liga/<int:liga_id>/', views.detalle_liga, name='detalle_liga'),
     path('buscar/', views.buscar, name='buscar'),
     path('crear_articulo/', views.crear_articulo, name='crear_articulo'),
-    path('articulos/', views.lista_articulos, name='lista_articulos'),
     path('articulos/<int:articulo_id>/', views.detalle_articulo, name='detalle_articulo'),
+    path('articulos/', views.listar_articulos, name='listar_articulos'),
+    path('articulo/crear/', views.crear_articulo, name='crear_articulo'),
+    path('articulo/<int:articulo_id>/actualizar/', views.actualizar_articulo, name='actualizar_articulo'),
+    path('articulo/<int:articulo_id>/eliminar/', views.eliminar_articulo, name='eliminar_articulo'),
+]
 
-    ]
+
+    
