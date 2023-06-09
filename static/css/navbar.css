@@ -1,0 +1,18 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(79, 145, 212, 0.514);
+    padding: 20px;
+    flex-direction: row; /* Establece la dirección de izquierda a derecha */
+  }
+.navbar-logo img {
+    height: 50px;
+    background-color: rgba(49, 141, 151, 0.181);
+    border-radius: 12px;
+    padding: 5px;
+  }

@@ -1,15 +1,26 @@
 {% extends 'base.html' %}
+{% block title %}Articulos{% endblock %}
 {% load static %}
+
 {% block content %}
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav"></ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
     <h1>Articulos</h1>
     <ul>
         {% for articulo in articulos %}
             <li>
                 <h3>{{ articulo.titulo }}</h3>
-                <p>Autor: {{ articulo.autor }}</p>
-                <p>Fecha de publicación: {{ articulo.fecha_publicacion }}</p>
-                <p>Contenido: {{ articulo.contenido }}</p>
-                <a href="{% url 'detalle_articulo' articulo.id %}">Ver detalles</a>
+                
+                <a href="{% url 'detalle_articulo' articulo.id %}"type="submit" class="btn btn-primary">Ver detalles</a>
             </li>
         {% empty %}
             <li>No hay artículos disponibles.</li>
