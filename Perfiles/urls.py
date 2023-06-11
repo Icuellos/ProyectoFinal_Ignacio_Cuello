@@ -10,7 +10,6 @@ urlpatterns = [
     path('cerrar_sesion/', views.cerrar_sesion, name='cerrar_sesion'),
     path('logout/', views.logout_view, name='logout'),
     path('login/', views.login_view, name='login'),
-    path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
 ]
 
