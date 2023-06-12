@@ -1,6 +1,6 @@
 from django.urls import include, path
 from . import views
-from .views import inicio_sesion
+from .views import inicio_sesion, registro
 
 app_name = 'Perfiles'
 

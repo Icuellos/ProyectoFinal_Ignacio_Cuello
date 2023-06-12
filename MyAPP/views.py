@@ -28,14 +28,15 @@ def Proyectos(request):
    
 def Crear_Proyecto(request):
     if request.method == 'GET':
-     return render(request, 'Crear_Proyecto.html', 
-                  {'form': CrearNuevoProyecto()})
+        return render(request, 'Crear_Proyecto.html', {'form': CrearNuevoProyecto()})
     else:
-        print (request.POST)
-        Proyectos = Proyecto.objects.create(name=request.POST["name"])
-        return render(request, 'Crear_Proyecto.html', 
-                  {'form': CrearNuevoProyecto()
-    })
+        form = CrearNuevoProyecto(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            Proyecto.objects.create(name=name)
+            form = CrearNuevoProyecto()  # Reiniciar el formulario después de crear el proyecto
+
+        return render(request, 'Crear_Proyecto.html', {'form': form})
         
 def Crear_Liga(request):
     if request.method == 'POST':

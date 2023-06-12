@@ -4,32 +4,26 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import UserCreationForm, LoginForm
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
+from .forms import RegistroForm
+from django.contrib.auth.models import User
 
 def registro(request):
-    error_message = ""
-    password_mismatch = False
+    error_message = None  # Variable para almacenar el mensaje de error
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistroForm(request.POST)
         if form.is_valid():
-            password1 = form.cleaned_data.get('password1')
-            password2 = form.cleaned_data.get('password2')
-            if password1 != password2:
-                error_message = "Las contraseñas no coinciden. Por favor, inténtalo nuevamente."
-            else:
-                form.save()
-                username = form.cleaned_data.get('username')
-                password = form.cleaned_data.get('password1')
-                user = authenticate(request, username=username, password=password)
-                if user is not None:
-                    login(request, user)
-                    return redirect('index')
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            User.objects.create_user(username=username, password=password)
+            return redirect('index')  # Redirigir a una página de registro exitoso
         else:
-            return render(request, 'registro.html', {'form': form})
+            error_message = 'Las contraseñas no coinciden.'
     else:
-        form = UserCreationForm()
+        form = RegistroForm()
     
-    return render(request, 'registro.html', {'form': form, 'error_message': error_message, 'password_mismatch': password_mismatch})
+    context = {'form': form, 'error_message': error_message}  # Pasar el mensaje de error a la plantilla
+    return render(request, 'registro.html', context)
 
 def inicio_sesion(request):
     if request.method == 'POST':
